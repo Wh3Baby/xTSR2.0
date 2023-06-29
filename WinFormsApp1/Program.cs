@@ -10,7 +10,49 @@ namespace WindowsFormsApp
             string input = Microsoft.VisualBasic.Interaction.InputBox(message, "Введите число: ");
             return Convert.ToInt32(input);
         }
+        static bool IsWeekend(int dayOfWeek)
+        {
+            return dayOfWeek == 6 || dayOfWeek == 7; // 6 - суббота, 7 - воскресенье
+        }
+        static bool IsInteresting(int number)
+        {
+            int product = 1;
+            int sum = 0;
 
+            string numberString = number.ToString();
+            for (int i = 0; i < numberString.Length; i++)
+            {
+                int digit = int.Parse(numberString[i].ToString());
+                product *= digit;
+                sum += digit;
+            }
+
+            return product % sum == 0;
+        }
+        static int GetQuadrant(double x, double y)
+        {
+            if (x > 0 && y > 0)
+            {
+                return 1;
+            }
+            else if (x < 0 && y > 0)
+            {
+                return 2;
+            }
+            else if (x < 0 && y < 0)
+            {
+                return 3;
+            }
+            else if (x > 0 && y < 0)
+            {
+                return 4;
+            }
+            else
+            {
+                // Если точка лежит на одной из осей, возвращаем 0
+                return 0;
+            }
+        }
         static int MakeArray(int a, int b)
         {
             int result = 0;
@@ -29,6 +71,64 @@ namespace WindowsFormsApp
                 result = (a / c) % 10;
             }
             return result;
+        }
+        static string GetCoordinateRange(int quadrant)
+        {
+            string range = "";
+
+            switch (quadrant)
+            {
+                case 1:
+                    range = "x > 0, y > 0";
+                    break;
+                case 2:
+                    range = "x < 0, y > 0";
+                    break;
+                case 3:
+                    range = "x < 0, y < 0";
+                    break;
+                case 4:
+                    range = "x > 0, y < 0";
+                    break;
+                default:
+                    range = "Неверный номер четверти";
+                    break;
+            }
+
+            return range;
+        }
+
+        static double CalculateDistance(double x1, double y1, double x2, double y2)
+        {
+            double dx = x2 - x1;
+            double dy = y2 - y1;
+            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy), 2);
+            return distance;
+        }
+        static double CalculateDistance3D(double x1, double y1, double z1, double x2, double y2, double z2)
+        {
+            double dx = x2 - x1;
+            double dy = y2 - y1;
+            double dz = z2 - z1;
+
+            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy + dz * dz), 2);
+            return distance;
+        }
+
+        static bool IsPalindrome(int number)
+        {
+            string numberString = number.ToString();
+
+            // Проверяем симметричность цифр числа
+            for (int i = 0; i < numberString.Length / 2; i++)
+            {
+                if (numberString[i] != numberString[numberString.Length - 1 - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         static void Task1()
@@ -114,10 +214,7 @@ namespace WindowsFormsApp
             MessageBox.Show($"Вторая циферка числа: {num} равна: {secondNum}"); // using interpolations strings
 
         }
-        static bool IsWeekend(int dayOfWeek)
-        {
-            return dayOfWeek == 6 || dayOfWeek == 7; // 6 - суббота, 7 - воскресенье
-        }
+       
         static void Task_7() 
         {
             // Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
@@ -135,21 +232,7 @@ namespace WindowsFormsApp
 
 
         }
-        static bool IsInteresting(int number)
-        {
-            int product = 1;
-            int sum = 0;
-
-            string numberString = number.ToString();
-            for (int i = 0; i < numberString.Length; i++)
-            {
-                int digit = int.Parse(numberString[i].ToString());
-                product *= digit;
-                sum += digit;
-            }
-
-            return product % sum == 0;
-        }
+      
         static void Task_8() 
         {
             /*  Назовём число «интересным» если его произведение цифр делится на их сумму БЕЗ остатка. Напишите программу, которая заполняет массив на 10 «интересных» случайных целых чисел от 10 до 1000(999 - последнее). (каждый эл-т массива – сгенерирован случайно)
@@ -172,30 +255,7 @@ namespace WindowsFormsApp
             MessageBox.Show("Сгенерированный массив интересных чисел:\n"+ string.Join(", ", interestingNumbers));
             
         }
-        static int GetQuadrant(double x, double y)
-        {
-            if (x > 0 && y > 0)
-            {
-                return 1;
-            }
-            else if (x < 0 && y > 0)
-            {
-                return 2;
-            }
-            else if (x < 0 && y < 0)
-            {
-                return 3;
-            }
-            else if (x > 0 && y < 0)
-            {
-                return 4;
-            }
-            else
-            {
-                // Если точка лежит на одной из осей, возвращаем 0
-                return 0;
-            }
-        }
+       
         static void task_9() 
         {
             /*
@@ -208,31 +268,7 @@ namespace WindowsFormsApp
             int quadrant = GetQuadrant(x, y);
             MessageBox.Show($"Точка находится в {quadrant} четверти плоскости.");
         }
-        static string GetCoordinateRange(int quadrant)
-        {
-            string range = "";
-
-            switch (quadrant)
-            {
-                case 1:
-                    range = "x > 0, y > 0";
-                    break;
-                case 2:
-                    range = "x < 0, y > 0";
-                    break;
-                case 3:
-                    range = "x < 0, y < 0";
-                    break;
-                case 4:
-                    range = "x > 0, y < 0";
-                    break;
-                default:
-                    range = "Неверный номер четверти";
-                    break;
-            }
-
-            return range;
-        }
+       
         static void Task_10() 
         {
             int quadrant = ReadNumber("Введите номер четверти: ");
@@ -240,22 +276,7 @@ namespace WindowsFormsApp
             MessageBox.Show($"Диапазон координат точек в четверти {quadrant}: {coordinateRange}");
         }
 
-        static double CalculateDistance(double x1, double y1, double x2, double y2)
-        {
-            double dx = x2 - x1;
-            double dy = y2 - y1;
-            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy),2);
-            return distance;
-        }
-        static double CalculateDistance3D(double x1, double y1, double z1, double x2, double y2, double z2)
-        {
-            double dx = x2 - x1;
-            double dy = y2 - y1;
-            double dz = z2 - z1;
-
-            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy + dz * dz),2);
-            return distance;
-        }
+        
         static void task_11() 
         {
             
@@ -285,21 +306,7 @@ namespace WindowsFormsApp
             }
         }
         // HOMEWORK 29/06/2023 SEMINAR: 3
-        static bool IsPalindrome(int number)
-        {
-            string numberString = number.ToString();
-
-            // Проверяем симметричность цифр числа
-            for (int i = 0; i < numberString.Length / 2; i++)
-            {
-                if (numberString[i] != numberString[numberString.Length - 1 - i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+       
         static void home_task_1() 
         {
             /*  
@@ -335,7 +342,19 @@ namespace WindowsFormsApp
             double distance = CalculateDistance3D(x1, y1, z1, x2, y2, z2);
             MessageBox.Show($"Расстояние между точками: {distance}");
         }
+        static void home_task_3() 
+        {
+            // Nапишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+            int N = ReadNumber("Введите число N:");
 
+            MessageBox.Show("Таблица кубов чисел от 1 до " + N + ":");
+
+            for (int i = 1; i <= N; i++)
+            {
+                int cube = i * i * i;
+                 MessageBox.Show($"{i}^3 = {cube}");
+            }
+        }
         static void Information() 
         {
             string msg = "xTSR ver 2.1\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 3 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
@@ -419,6 +438,10 @@ namespace WindowsFormsApp
                 homebtn_2.Text = "[ДЗ] # 2";
                 homebtn_2.Click += (sender, e) => home_task_2();
 
+                Button homebtn_3 = new Button();
+                homebtn_3.Text = "[ДЗ] # 3";
+                homebtn_3.Click += (sender, e) => home_task_3();
+
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
                 infoButton.Click += (sender, e) => Information();
@@ -455,6 +478,8 @@ namespace WindowsFormsApp
                 panel.Controls.Add(homebtn_1);
 
                 panel.Controls.Add(homebtn_2);
+
+                panel.Controls.Add(homebtn_3);
 
                 panel.Controls.Add(infoButton);
 
