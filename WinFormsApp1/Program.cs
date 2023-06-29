@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 
 namespace WindowsFormsApp
 {
@@ -7,7 +7,7 @@ namespace WindowsFormsApp
         static int ReadNumber(string message)
         {
             //Console.Write(message);
-            string input = Microsoft.VisualBasic.Interaction.InputBox(message, "Введите число: ");
+            string input = Microsoft.VisualBasic.Interaction.InputBox(message, "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ");
             return Convert.ToInt32(input);
         }
 
@@ -16,7 +16,7 @@ namespace WindowsFormsApp
             int result = 0;
             if (b < 3)
             {
-                MessageBox.Show("Третья цифра отсутствует");
+                MessageBox.Show("РўСЂРµС‚СЊСЏ С†РёС„СЂР° РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚");
             }
             else
             {
@@ -33,60 +33,60 @@ namespace WindowsFormsApp
 
         static void Task1()
         {
-            int x = ReadNumber("Введите первое число: ");
-            int y = ReadNumber("Введите второе число: ");
+            int x = ReadNumber("Р’РІРµРґРёС‚Рµ РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ: ");
+            int y = ReadNumber("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ: ");
 
             if (x > y)
             {
-                MessageBox.Show("Число " + x + " больше числа " + y);
+                MessageBox.Show("Р§РёСЃР»Рѕ " + x + " Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + y);
             }
             else
             {
-                MessageBox.Show("Число " + y + " больше числа " + x);
+                MessageBox.Show("Р§РёСЃР»Рѕ " + y + " Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + x);
             }
         }
 
         static void Task2()
         {
-            int x = ReadNumber("Введите первое число: ");
-            int y = ReadNumber("Введите второе число: ");
-            int z = ReadNumber("Введите третье число: ");
+            int x = ReadNumber("Р’РІРµРґРёС‚Рµ РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ: ");
+            int y = ReadNumber("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ: ");
+            int z = ReadNumber("Р’РІРµРґРёС‚Рµ С‚СЂРµС‚СЊРµ С‡РёСЃР»Рѕ: ");
 
             if (x > y && x > z)
             {
-                MessageBox.Show("Число " + x + " больше числа " + y + " и больше числа " + z);
+                MessageBox.Show("Р§РёСЃР»Рѕ " + x + " Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + y + " Рё Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + z);
             }
             else if (y > x && y > z)
             {
-                MessageBox.Show("Число " + y + " больше числа " + x + " и больше числа " + z);
+                MessageBox.Show("Р§РёСЃР»Рѕ " + y + " Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + x + " Рё Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + z);
             }
             else if (z > x && z > y)
             {
-                MessageBox.Show("Число " + z + " больше числа " + x + " и больше числа " + y);
+                MessageBox.Show("Р§РёСЃР»Рѕ " + z + " Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + x + " Рё Р±РѕР»СЊС€Рµ С‡РёСЃР»Р° " + y);
             }
             else
             {
-                MessageBox.Show("У нас технические шоколадки...");
+                MessageBox.Show("РЈ РЅР°СЃ С‚РµС…РЅРёС‡РµСЃРєРёРµ С€РѕРєРѕР»Р°РґРєРё...");
             }
         }
 
         static void Task3()
         {
-            int x = ReadNumber("Введите число: ");
+            int x = ReadNumber("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ");
 
             if (x % 2 == 0)
             {
-                MessageBox.Show("Число " + x + " четное");
+                MessageBox.Show("Р§РёСЃР»Рѕ " + x + " С‡РµС‚РЅРѕРµ");
             }
             else
             {
-                MessageBox.Show("Число " + x + " нечетное");
+                MessageBox.Show("Р§РёСЃР»Рѕ " + x + " РЅРµС‡РµС‚РЅРѕРµ");
             }
         }
 
         static void Task4()
         {
-            int x = ReadNumber("Введите число: ");
+            int x = ReadNumber("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ");
 
             for (int i = 0; i <= x; i++)
             {
@@ -97,40 +97,40 @@ namespace WindowsFormsApp
             }
         }
 
-        //ACTIAL HOMEWORK 26/06/23
+        //HOMEWORK 26/06/23
         static void Task5()
         {
-            // Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет. До 10 символов
-            int number = ReadNumber("Введите число: ");
+            // РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РІС‹РІРѕРґРёС‚ С‚СЂРµС‚СЊСЋ С†РёС„СЂСѓ Р·Р°РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р° РёР»Рё СЃРѕРѕР±С‰Р°РµС‚, С‡С‚Рѕ С‚СЂРµС‚СЊРµР№ С†РёС„СЂС‹ РЅРµС‚. Р”Рѕ 10 СЃРёРјРІРѕР»РѕРІ
+            int number = ReadNumber("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ");
             int count = number.ToString().Length;
-            MessageBox.Show("Третья цифра числа: " + MakeArray(number, count));
+            MessageBox.Show("РўСЂРµС‚СЊСЏ С†РёС„СЂР° С‡РёСЃР»Р°: " + MakeArray(number, count));
         }
         static void Task_6() 
         {
-            //  Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+            //  РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РїСЂРёРЅРёРјР°РµС‚ РЅР° РІС…РѕРґ С‚СЂС‘С…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ Рё РЅР° РІС‹С…РѕРґРµ РїРѕРєР°Р·С‹РІР°РµС‚ РІС‚РѕСЂСѓСЋ С†РёС„СЂСѓ СЌС‚РѕРіРѕ С‡РёСЃР»Р°.
             // Get user data and save in variable
-            int num = ReadNumber("Введите 3-х значное число: ");
+            int num = ReadNumber("Р’РІРµРґРёС‚Рµ 3-С… Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ: ");
             int secondNum = (num/10) % 10;
-            MessageBox.Show($"Вторая циферка числа: {num} равна: {secondNum}"); // using interpolations strings
+            MessageBox.Show($"Р’С‚РѕСЂР°СЏ С†РёС„РµСЂРєР° С‡РёСЃР»Р°: {num} СЂР°РІРЅР°: {secondNum}"); // using interpolations strings
 
         }
         static bool IsWeekend(int dayOfWeek)
         {
-            return dayOfWeek == 6 || dayOfWeek == 7; // 6 - суббота, 7 - воскресенье
+            return dayOfWeek == 6 || dayOfWeek == 7; // 6 - СЃСѓР±Р±РѕС‚Р°, 7 - РІРѕСЃРєСЂРµСЃРµРЅСЊРµ
         }
         static void Task_7() 
         {
-            // Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
-            int DayOfWeek = ReadNumber("Введите цифру, обозначающую день недели (1 - понедельник, 2 - вторник и т.д.):");
+            // РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РїСЂРёРЅРёРјР°РµС‚ РЅР° РІС…РѕРґ С†РёС„СЂСѓ, РѕР±РѕР·РЅР°С‡Р°СЋС‰СѓСЋ РґРµРЅСЊ РЅРµРґРµР»Рё, Рё РїСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЌС‚РѕС‚ РґРµРЅСЊ РІС‹С…РѕРґРЅС‹Рј.
+            int DayOfWeek = ReadNumber("Р’РІРµРґРёС‚Рµ С†РёС„СЂСѓ, РѕР±РѕР·РЅР°С‡Р°СЋС‰СѓСЋ РґРµРЅСЊ РЅРµРґРµР»Рё (1 - РїРѕРЅРµРґРµР»СЊРЅРёРє, 2 - РІС‚РѕСЂРЅРёРє Рё С‚.Рґ.):");
             bool isWeekend = IsWeekend(DayOfWeek);
 
             if (isWeekend)
             {
-                MessageBox.Show("Этот день является выходным.");
+                MessageBox.Show("Р­С‚РѕС‚ РґРµРЅСЊ СЏРІР»СЏРµС‚СЃСЏ РІС‹С…РѕРґРЅС‹Рј.");
             }
             else
             {
-                 MessageBox.Show("Этот день не является выходным.");
+                 MessageBox.Show("Р­С‚РѕС‚ РґРµРЅСЊ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РІС‹С…РѕРґРЅС‹Рј.");
             }
 
 
@@ -152,8 +152,8 @@ namespace WindowsFormsApp
         }
         static void Task_8() 
         {
-            /*  Назовём число «интересным» если его произведение цифр делится на их сумму БЕЗ остатка. Напишите программу, которая заполняет массив на 10 «интересных» случайных целых чисел от 10 до 1000(999 - последнее). (каждый эл-т массива – сгенерирован случайно)
-                Пример для 1 элемента массива: 591, сумма: 5+9+1 = 15; произведение: 5*9*1 = 45; 45 / 15 - делится НАЦЕЛО, число "интересное"
+            /*  РќР°Р·РѕРІС‘Рј С‡РёСЃР»Рѕ В«РёРЅС‚РµСЂРµСЃРЅС‹РјВ» РµСЃР»Рё РµРіРѕ РїСЂРѕРёР·РІРµРґРµРЅРёРµ С†РёС„СЂ РґРµР»РёС‚СЃСЏ РЅР° РёС… СЃСѓРјРјСѓ Р‘Р•Р— РѕСЃС‚Р°С‚РєР°. РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ Р·Р°РїРѕР»РЅСЏРµС‚ РјР°СЃСЃРёРІ РЅР° 10 В«РёРЅС‚РµСЂРµСЃРЅС‹С…В» СЃР»СѓС‡Р°Р№РЅС‹С… С†РµР»С‹С… С‡РёСЃРµР» РѕС‚ 10 РґРѕ 1000(999 - РїРѕСЃР»РµРґРЅРµРµ). (РєР°Р¶РґС‹Р№ СЌР»-С‚ РјР°СЃСЃРёРІР° вЂ“ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅ СЃР»СѓС‡Р°Р№РЅРѕ)
+                РџСЂРёРјРµСЂ РґР»СЏ 1 СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР°: 591, СЃСѓРјРјР°: 5+9+1 = 15; РїСЂРѕРёР·РІРµРґРµРЅРёРµ: 5*9*1 = 45; 45 / 15 - РґРµР»РёС‚СЃСЏ РќРђР¦Р•Р›Рћ, С‡РёСЃР»Рѕ "РёРЅС‚РµСЂРµСЃРЅРѕРµ"
                 [591, 532, 189, 523, 333, 546, 527, 275, 456, 264]
             */
             int[] interestingNumbers = new int[10];
@@ -169,12 +169,48 @@ namespace WindowsFormsApp
                     count++;
                 }
             }
-            MessageBox.Show("Сгенерированный массив интересных чисел:\n"+ string.Join(", ", interestingNumbers));
+            MessageBox.Show("РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ РёРЅС‚РµСЂРµСЃРЅС‹С… С‡РёСЃРµР»:\n"+ string.Join(", ", interestingNumbers));
             
+        }
+        static int GetQuadrant(double x, double y)
+        {
+            if (x > 0 && y > 0)
+            {
+                return 1;
+            }
+            else if (x < 0 && y > 0)
+            {
+                return 2;
+            }
+            else if (x < 0 && y < 0)
+            {
+                return 3;
+            }
+            else if (x > 0 && y < 0)
+            {
+                return 4;
+            }
+            else
+            {
+                // Р•СЃР»Рё С‚РѕС‡РєР° Р»РµР¶РёС‚ РЅР° РѕРґРЅРѕР№ РёР· РѕСЃРµР№, РІРѕР·РІСЂР°С‰Р°РµРј 0
+                return 0;
+            }
+        }
+        static void task_9() 
+        {
+            /*
+             * 17. РќР°РїРёС€РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РїСЂРёРЅРёРјР°РµС‚ РЅР° РІС…РѕРґ РєРѕРѕСЂРґРёРЅР°С‚С‹ С‚РѕС‡РєРё (X Рё Y),
+            // РїСЂРёС‡С‘Рј X в‰  0 Рё Y в‰  0 Рё РІС‹РґР°С‘С‚ РЅРѕРјРµСЂ С‡РµС‚РІРµСЂС‚Рё РїР»РѕСЃРєРѕСЃС‚Рё, 
+            // РІ РєРѕС‚РѕСЂРѕР№ РЅР°С…РѕРґРёС‚СЃСЏ СЌС‚Р° С‚РѕС‡РєР°.
+             */
+            int x = ReadNumber("Р’РІРµРґРёС‚Рµ X: ");
+            int y = ReadNumber("Р’РІРµРґРёС‚Рµ Y: ");
+            int quadrant = GetQuadrant(x, y);
+            MessageBox.Show($"РўРѕС‡РєР° РЅР°С…РѕРґРёС‚СЃСЏ РІ {quadrant} С‡РµС‚РІРµСЂС‚Рё РїР»РѕСЃРєРѕСЃС‚Рё.");
         }
         static void Information() 
         {
-            string msg = "Это вторая версия проекта xTSR\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по второй семинар\nЧто нового?\n[+]GUI\n[+]Универсальная функция чтения строк и перевода в int\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
+            string msg = "Р­С‚Рѕ РІС‚РѕСЂР°СЏ РІРµСЂСЃРёСЏ РїСЂРѕРµРєС‚Р° xTSR\nРџСЂРѕРіСЂР°РјРјР° СЃ РґРѕРјР°С€РЅРёРјРё Р·Р°РґР°РЅРёСЏРјРё РїРѕ РєСѓСЂСЃСѓ C#\nР’ СЌС‚РѕРј СЂРµР»РёР·Рµ РІСЃС‘ РґР· СЃ РїРµСЂРІРѕРіРѕ РїРѕ РІС‚РѕСЂРѕР№ СЃРµРјРёРЅР°СЂ\nР§С‚Рѕ РЅРѕРІРѕРіРѕ?\n[+]GUI\n[+]РЈРЅРёРІРµСЂСЃР°Р»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ С‡С‚РµРЅРёСЏ СЃС‚СЂРѕРє Рё РїРµСЂРµРІРѕРґР° РІ int\nРђРІС‚РѕСЂ: РљСЂСЏС‡РєРѕ Р’РёРєС‚РѕСЂ\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
             MessageBox.Show(msg);
         }
         [STAThread]
@@ -189,45 +225,52 @@ namespace WindowsFormsApp
         {
             public MainForm()
             {
+                // CONSTRUCTOR
                 InitializeComponents();
             }
 
             private void InitializeComponents()
             {
+                // GUI STUFF
                 this.Text = "xTSR 2.0";
                 this.Size = new System.Drawing.Size(300, 200);
 
                 Button task1Button = new Button();
-                task1Button.Text = "Задание 1";
+                task1Button.Text = "Р—Р°РґР°РЅРёРµ 1";
                 task1Button.Click += (sender, e) => Task1();
 
                 Button task2Button = new Button();
-                task2Button.Text = "Задание 2";
+                task2Button.Text = "Р—Р°РґР°РЅРёРµ 2";
                 task2Button.Click += (sender, e) => Task2();
 
                 Button task3Button = new Button();
-                task3Button.Text = "Задание 3";
+                task3Button.Text = "Р—Р°РґР°РЅРёРµ 3";
                 task3Button.Click += (sender, e) => Task3();
 
                 Button task4Button = new Button();
-                task4Button.Text = "Задание 4";
+                task4Button.Text = "Р—Р°РґР°РЅРёРµ 4";
                 task4Button.Click += (sender, e) => Task4();
 
                 Button task5Button = new Button();
-                task5Button.Text = "Задание 5";
+                task5Button.Text = "Р—Р°РґР°РЅРёРµ 5";
                 task5Button.Click += (sender, e) => Task5();
 
                 Button task6Button = new Button();
-                task6Button.Text = "Задание 6";
+                task6Button.Text = "Р—Р°РґР°РЅРёРµ 6";
                 task6Button.Click += (sender,e) => Task_6();
 
                 Button task7Button = new Button();
-                task7Button.Text = "Задание 7";
+                task7Button.Text = "Р—Р°РґР°РЅРёРµ 7";
                 task7Button.Click += (sender, e) => Task_7();
 
                 Button task8Button = new Button();
-                task8Button.Text = "Задание 8";
+                task8Button.Text = "Р—Р°РґР°РЅРёРµ 8";
                 task8Button.Click += (sender, e) => Task_8();
+
+                Button task9Button = new Button();
+                task9Button.Text = "Р—Р°РґР°РЅРёРµ 9";
+                task9Button.Click += (sender, e) =>task_9();
+
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -245,6 +288,7 @@ namespace WindowsFormsApp
                 panel.Controls.Add(task6Button);
                 panel.Controls.Add(task7Button);
                 panel.Controls.Add(task8Button);
+                panel.Controls.Add(task9Button);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
