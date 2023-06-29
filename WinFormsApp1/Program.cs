@@ -247,6 +247,15 @@ namespace WindowsFormsApp
             double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy),2);
             return distance;
         }
+        static double CalculateDistance3D(double x1, double y1, double z1, double x2, double y2, double z2)
+        {
+            double dx = x2 - x1;
+            double dy = y2 - y1;
+            double dz = z2 - z1;
+
+            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy + dz * dz),2);
+            return distance;
+        }
         static void task_11() 
         {
             
@@ -311,6 +320,20 @@ namespace WindowsFormsApp
             }
 
             
+        }
+        static void home_task_2() 
+        {
+          /*
+           * Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+           */
+            double x1 = ReadNumber("Введите координаты первой точки X :");
+            double y1 = ReadNumber("Введите координаты первой точки Y :");
+            double z1 = ReadNumber("Введите координаты первой точки Z :");
+            double x2 = ReadNumber("Введите координаты второй точки X :");
+            double y2 = ReadNumber("Введите координаты второй точки Y :");
+            double z2 = ReadNumber("Введите координаты второй точки Z :");
+            double distance = CalculateDistance3D(x1, y1, z1, x2, y2, z2);
+            MessageBox.Show($"Расстояние между точками: {distance}");
         }
 
         static void Information() 
@@ -392,6 +415,10 @@ namespace WindowsFormsApp
                 homebtn_1.Text = "[ДЗ] # 1";
                 homebtn_1.Click += (sender, e) => home_task_1();
 
+                Button homebtn_2 = new Button();
+                homebtn_2.Text = "[ДЗ] # 2";
+                homebtn_2.Click += (sender, e) => home_task_2();
+
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
                 infoButton.Click += (sender, e) => Information();
@@ -400,19 +427,35 @@ namespace WindowsFormsApp
                 FlowLayoutPanel panel = new();
                 panel.Dock = DockStyle.Fill;
                 panel.FlowDirection = FlowDirection.TopDown;
+
                 panel.Controls.Add(task1Button);
+
                 panel.Controls.Add(task2Button);
+
                 panel.Controls.Add(task3Button);
+
                 panel.Controls.Add(task4Button);
+
                 panel.Controls.Add(task5Button);
+
                 panel.Controls.Add(task6Button);
+
                 panel.Controls.Add(task7Button);
+
                 panel.Controls.Add(task8Button);
+
                 panel.Controls.Add(task9Button);
+
                 panel.Controls.Add(task10Button);
+
                 panel.Controls.Add(task11Button);
+
                 panel.Controls.Add(task12Button);
+
                 panel.Controls.Add(homebtn_1);
+
+                panel.Controls.Add(homebtn_2);
+
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
