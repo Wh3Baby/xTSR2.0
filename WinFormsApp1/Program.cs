@@ -244,7 +244,7 @@ namespace WindowsFormsApp
         {
             double dx = x2 - x1;
             double dy = y2 - y1;
-            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy));
+            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy),2);
             return distance;
         }
         static void task_11() 
@@ -275,9 +275,47 @@ namespace WindowsFormsApp
                 MessageBox.Show(i + " * " + i + " = " + square);
             }
         }
+        // HOMEWORK 29/06/2023 SEMINAR: 3
+        static bool IsPalindrome(int number)
+        {
+            string numberString = number.ToString();
+
+            // Проверяем симметричность цифр числа
+            for (int i = 0; i < numberString.Length / 2; i++)
+            {
+                if (numberString[i] != numberString[numberString.Length - 1 - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        static void home_task_1() 
+        {
+            /*  
+             *  Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+             */
+
+            int number = ReadNumber("Введите пятизначное число: ");
+
+            bool isPalindrome = IsPalindrome(number);
+
+            if (isPalindrome)
+            {
+                MessageBox.Show("Число является палиндромом.");
+            }
+            else
+            {
+                MessageBox.Show("Число не является палиндромом.");
+            }
+
+            
+        }
+
         static void Information() 
         {
-            string msg = "Это вторая версия проекта xTSR\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по второй семинар\nЧто нового?\n[+]GUI\n[+]Универсальная функция чтения строк и перевода в int\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
+            string msg = "xTSR ver 2.1\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 3 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
             MessageBox.Show(msg);
         }
         [STAThread]
@@ -350,6 +388,9 @@ namespace WindowsFormsApp
                 task12Button.Text = "Задание 12";
                 task12Button.Click += (sender, e) => task_12();
 
+                Button homebtn_1 = new Button();
+                homebtn_1.Text = "[ДЗ] # 1";
+                homebtn_1.Click += (sender, e) => home_task_1();
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -371,6 +412,7 @@ namespace WindowsFormsApp
                 panel.Controls.Add(task10Button);
                 panel.Controls.Add(task11Button);
                 panel.Controls.Add(task12Button);
+                panel.Controls.Add(homebtn_1);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
