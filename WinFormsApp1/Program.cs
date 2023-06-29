@@ -240,6 +240,27 @@ namespace WindowsFormsApp
             MessageBox.Show($"Диапазон координат точек в четверти {quadrant}: {coordinateRange}");
         }
 
+        static double CalculateDistance(double x1, double y1, double x2, double y2)
+        {
+            double dx = x2 - x1;
+            double dy = y2 - y1;
+            double distance = Math.Round(Math.Sqrt(dx * dx + dy * dy));
+            return distance;
+        }
+        static void task_11() 
+        {
+            
+            double x1 = ReadNumber("Введите X:");
+            double y1 = ReadNumber("Введите Y:");
+
+           
+            double x2 = ReadNumber("Введите X2:");
+            double y2 = ReadNumber("Введите Y2:");
+
+            double distance = CalculateDistance(x1, y1, x2, y2);
+
+            MessageBox.Show($"Расстояние между двумя точками: {distance}"  );
+        }
         static void Information() 
         {
             string msg = "Это вторая версия проекта xTSR\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по второй семинар\nЧто нового?\n[+]GUI\n[+]Универсальная функция чтения строк и перевода в int\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
@@ -307,6 +328,10 @@ namespace WindowsFormsApp
                 task10Button.Text = "Задание 10";
                 task10Button.Click += (sender, e) => Task_10();
 
+                Button task11Button = new Button();
+                task11Button.Text = "Задание 11";
+                task11Button.Click += (sender, e) => task_11();
+
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -326,6 +351,7 @@ namespace WindowsFormsApp
                 panel.Controls.Add(task8Button);
                 panel.Controls.Add(task9Button);
                 panel.Controls.Add(task10Button);
+                panel.Controls.Add(task11Button);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
