@@ -261,6 +261,20 @@ namespace WindowsFormsApp
 
             MessageBox.Show($"Расстояние между двумя точками: {distance}"  );
         }
+        static void task_12() 
+        {
+            // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу квадратов чисел от 1 до N.
+
+            int N = ReadNumber("Ведите N:");
+
+            MessageBox.Show("Таблица квадратов чисел от 1 до " + N + ":");
+
+            for (int i = 1; i <= N; i++)
+            {
+                int square = i * i;
+                MessageBox.Show(i + " * " + i + " = " + square);
+            }
+        }
         static void Information() 
         {
             string msg = "Это вторая версия проекта xTSR\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по второй семинар\nЧто нового?\n[+]GUI\n[+]Универсальная функция чтения строк и перевода в int\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
@@ -332,6 +346,10 @@ namespace WindowsFormsApp
                 task11Button.Text = "Задание 11";
                 task11Button.Click += (sender, e) => task_11();
 
+                Button task12Button = new Button();
+                task12Button.Text = "Задание 12";
+                task12Button.Click += (sender, e) => task_12();
+
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -352,6 +370,7 @@ namespace WindowsFormsApp
                 panel.Controls.Add(task9Button);
                 panel.Controls.Add(task10Button);
                 panel.Controls.Add(task11Button);
+                panel.Controls.Add(task12Button);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
