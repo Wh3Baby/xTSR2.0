@@ -208,6 +208,38 @@ namespace WindowsFormsApp
             int quadrant = GetQuadrant(x, y);
             MessageBox.Show($"Точка находится в {quadrant} четверти плоскости.");
         }
+        static string GetCoordinateRange(int quadrant)
+        {
+            string range = "";
+
+            switch (quadrant)
+            {
+                case 1:
+                    range = "x > 0, y > 0";
+                    break;
+                case 2:
+                    range = "x < 0, y > 0";
+                    break;
+                case 3:
+                    range = "x < 0, y < 0";
+                    break;
+                case 4:
+                    range = "x > 0, y < 0";
+                    break;
+                default:
+                    range = "Неверный номер четверти";
+                    break;
+            }
+
+            return range;
+        }
+        static void Task_10() 
+        {
+            int quadrant = ReadNumber("Введите номер четверти: ");
+            string coordinateRange = GetCoordinateRange(quadrant);
+            MessageBox.Show($"Диапазон координат точек в четверти {quadrant}: {coordinateRange}");
+        }
+
         static void Information() 
         {
             string msg = "Это вторая версия проекта xTSR\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по второй семинар\nЧто нового?\n[+]GUI\n[+]Универсальная функция чтения строк и перевода в int\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
@@ -269,7 +301,11 @@ namespace WindowsFormsApp
 
                 Button task9Button = new Button();
                 task9Button.Text = "Задание 9";
-                task9Button.Click += (sender, e) =>task_9();
+                task9Button.Click += (sender, e) => task_9();
+
+                Button task10Button = new Button();
+                task10Button.Text = "Задание 10";
+                task10Button.Click += (sender, e) => Task_10();
 
 
                 Button infoButton = new Button();
@@ -289,6 +325,7 @@ namespace WindowsFormsApp
                 panel.Controls.Add(task7Button);
                 panel.Controls.Add(task8Button);
                 panel.Controls.Add(task9Button);
+                panel.Controls.Add(task10Button);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
