@@ -410,9 +410,81 @@
             }
 
         }
+        // HOME WORK SEMINAR by 06/07/2023
+        static void newHome4 ()
+        {
+            /*                  Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+                                [345, 897, 568, 234] -> 2
+            */
+
+            int[] numbers = new int[4];
+            Random random = new Random();
+            int countEven = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = random.Next(100, 1000);
+                if (numbers[i] % 2 == 0)
+                {
+                    countEven++;
+                }
+            }
+
+            MessageBox.Show($"Массив: {string.Join(", ", numbers)}\nКоличество четных чисел: {countEven}");
+
+        }
+
+        static void newHome5() 
+        {
+            /*              Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+                            [3, 7, 23, 12] -> 19
+                            [-4, -6, 89, 6] -> 0
+            */
+            int[] array = new int[4];
+            Random random = new Random();
+            int sum = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(-10, 11);
+                if (i % 2 != 0)
+                {
+                    sum += array[i];
+                }
+            }
+            MessageBox.Show($"Массив: {string.Join(", ", array)}\nСумма элементов на нечетных позициях: {sum}");
+
+        }
+
+        static void newHome6() 
+        {
+            /*          Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+                        [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
+            */
+            double[] array = { 3.22, 4.2, 1.15, 77.15, 65.2 };
+            double min = array[0];
+            double max = array[0];
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < min)
+                {
+                    min = array[i];
+                }
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+
+            double difference = max - min;
+
+            MessageBox.Show($"Массив: {string.Join(", ", array)}\nРазница между максимальным и минимальным элементами: {difference}");
+
+        }
         static void Information() 
         {
-            string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 3 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
+            string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 5 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
             MessageBox.Show(msg);
         }
         [STAThread]
@@ -447,6 +519,15 @@
                 Button hmBtn3 = new Button();
                 hmBtn3.Text = "03.07.[3]";
                 hmBtn3.Click += (sender, e) => newHome3();
+                Button hmBtn4 = new Button();
+                hmBtn4.Text = "06.07.[1]";
+                hmBtn4.Click += (sender, e) => newHome4();
+                Button hmBtn5 = new Button();
+                hmBtn5.Text = "06.07.[2]";
+                hmBtn5.Click += (sender, e) => newHome5();
+                Button hmBtn6 = new Button();
+                hmBtn6.Text = "06.07.[3]";
+                hmBtn6.Click += (sender, e) => newHome6();
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -459,6 +540,10 @@
                 panel.Controls.Add(hmBtn);
                 panel.Controls.Add(hmBtn2);
                 panel.Controls.Add(hmBtn3);
+
+                panel.Controls.Add(hmBtn4);
+                panel.Controls.Add(hmBtn5);
+                panel.Controls.Add(hmBtn6);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
