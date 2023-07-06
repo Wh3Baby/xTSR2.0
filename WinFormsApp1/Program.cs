@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WindowsFormsApp
+﻿namespace WindowsFormsApp
 {
     internal class Program
     {
@@ -319,11 +317,11 @@ namespace WindowsFormsApp
 
             if (isPalindrome)
             {
-                MessageBox.Show("Число является палиндромом.");
+                MessageBox.Show($"Число: {number} - является палиндромом.");
             }
             else
             {
-                MessageBox.Show("Число не является палиндромом.");
+                MessageBox.Show($"Число: {number} -  не является палиндромом.");
             }
 
             
@@ -355,9 +353,66 @@ namespace WindowsFormsApp
                  MessageBox.Show($"{i}^3 = {cube}");
             }
         }
+        // HOME WORK SEMINAR #3 entry
+        static void newHome() 
+        {
+            /*
+             * Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+                3, 5 -> 243 (3⁵)
+                2, 4 -> 16
+             */
+            int A = ReadNumber("Введите А: ");
+            int B = ReadNumber("Введите B: ");
+            int result = 1;
+            for (int i = 1; i <= B; i++)
+            {
+                result *= A;
+            }
+
+            MessageBox.Show($"Результат: {result}");
+
+        }
+        static void newHome2() 
+        {
+            // Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+            int number = ReadNumber("Введите число: ");
+            int sum = 0;
+
+            int tempNumber = Math.Abs(number); // Используем Math.Abs для получения абсолютного значения числа
+
+            while (tempNumber > 0)
+            {
+                int digit = tempNumber % 10; // Получаем последнюю цифру числа
+                sum += digit; // Добавляем цифру к сумме
+                tempNumber /= 10; // Удаляем последнюю цифру из числа
+            }
+
+            MessageBox.Show($"Сумма цифр числа: {sum}");
+
+        }
+        static void newHome3() 
+        {
+            /*
+             * Напишите программу, которая задаёт массив из 8 элементов в диапазоне от 10 до 1000 и выводит их на экран.
+                Или массив из 8 элементов вводится с консоли (каждый элемент вводит человек)
+            */
+            int[] numbers = new int[8];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = ReadNumber($"Введите элемент {i + 1}: ");
+            }
+
+            MessageBox.Show("Элементы массива:");
+            foreach (int number in numbers)
+            {
+                MessageBox.Show($"Элементы массива: {number}");
+            }
+
+        }
         static void Information() 
         {
-            string msg = "xTSR ver 2.1\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 3 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
+            string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 3 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
             MessageBox.Show(msg);
         }
         [STAThread]
@@ -379,68 +434,19 @@ namespace WindowsFormsApp
             private void InitializeComponents()
             {
                 // GUI STUFF
-                this.Text = "xTSR 2.0";
-                this.Size = new System.Drawing.Size(300, 200);
+                this.Text = "xTSR 2.2";
+                this.Size = new System.Drawing.Size(300, 300);
 
-                Button task1Button = new Button();
-                task1Button.Text = "Задание 1";
-                task1Button.Click += (sender, e) => Task1();
 
-                Button task2Button = new Button();
-                task2Button.Text = "Задание 2";
-                task2Button.Click += (sender, e) => Task2();
-
-                Button task3Button = new Button();
-                task3Button.Text = "Задание 3";
-                task3Button.Click += (sender, e) => Task3();
-
-                Button task4Button = new Button();
-                task4Button.Text = "Задание 4";
-                task4Button.Click += (sender, e) => Task4();
-
-                Button task5Button = new Button();
-                task5Button.Text = "Задание 5";
-                task5Button.Click += (sender, e) => Task5();
-
-                Button task6Button = new Button();
-                task6Button.Text = "Задание 6";
-                task6Button.Click += (sender,e) => Task_6();
-
-                Button task7Button = new Button();
-                task7Button.Text = "Задание 7";
-                task7Button.Click += (sender, e) => Task_7();
-
-                Button task8Button = new Button();
-                task8Button.Text = "Задание 8";
-                task8Button.Click += (sender, e) => Task_8();
-
-                Button task9Button = new Button();
-                task9Button.Text = "Задание 9";
-                task9Button.Click += (sender, e) => task_9();
-
-                Button task10Button = new Button();
-                task10Button.Text = "Задание 10";
-                task10Button.Click += (sender, e) => Task_10();
-
-                Button task11Button = new Button();
-                task11Button.Text = "Задание 11";
-                task11Button.Click += (sender, e) => task_11();
-
-                Button task12Button = new Button();
-                task12Button.Text = "Задание 12";
-                task12Button.Click += (sender, e) => task_12();
-
-                Button homebtn_1 = new Button();
-                homebtn_1.Text = "[ДЗ] # 1";
-                homebtn_1.Click += (sender, e) => home_task_1();
-
-                Button homebtn_2 = new Button();
-                homebtn_2.Text = "[ДЗ] # 2";
-                homebtn_2.Click += (sender, e) => home_task_2();
-
-                Button homebtn_3 = new Button();
-                homebtn_3.Text = "[ДЗ] # 3";
-                homebtn_3.Click += (sender, e) => home_task_3();
+                Button hmBtn = new Button();
+                hmBtn.Text = "03.07.[1]";
+                hmBtn.Click += (sender, e) => newHome();
+                Button hmBtn2 = new Button();
+                hmBtn2.Text = "03.07.[2]";
+                hmBtn2.Click += (sender, e) => newHome2();
+                Button hmBtn3 = new Button();
+                hmBtn3.Text = "03.07.[3]";
+                hmBtn3.Click += (sender, e) => newHome3();
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -450,37 +456,9 @@ namespace WindowsFormsApp
                 FlowLayoutPanel panel = new();
                 panel.Dock = DockStyle.Fill;
                 panel.FlowDirection = FlowDirection.TopDown;
-
-                panel.Controls.Add(task1Button);
-
-                panel.Controls.Add(task2Button);
-
-                panel.Controls.Add(task3Button);
-
-                panel.Controls.Add(task4Button);
-
-                panel.Controls.Add(task5Button);
-
-                panel.Controls.Add(task6Button);
-
-                panel.Controls.Add(task7Button);
-
-                panel.Controls.Add(task8Button);
-
-                panel.Controls.Add(task9Button);
-
-                panel.Controls.Add(task10Button);
-
-                panel.Controls.Add(task11Button);
-
-                panel.Controls.Add(task12Button);
-
-                panel.Controls.Add(homebtn_1);
-
-                panel.Controls.Add(homebtn_2);
-
-                panel.Controls.Add(homebtn_3);
-
+                panel.Controls.Add(hmBtn);
+                panel.Controls.Add(hmBtn2);
+                panel.Controls.Add(hmBtn3);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
