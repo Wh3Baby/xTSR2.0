@@ -482,6 +482,45 @@
             MessageBox.Show($"Массив: {string.Join(", ", array)}\nРазница между максимальным и минимальным элементами: {difference}");
 
         }
+        //  Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь. 
+        static void hoome1() 
+        {
+            // 10.07.2023
+            int count = 0; // init counter
+            int range = ReadNumber("Введите кол-во чисел:");
+            for (int i = 0; i<range; i++) 
+            {
+                int m = ReadNumber("Введите значение:");
+                if (m > 0)
+                    count++;
+            }
+            MessageBox.Show($"В вашем вводе\nЧисел которые больше 0\n{count}");
+        }
+        /*Напишите программу, которая найдёт точку пересечения двух прямых, 
+         * заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.*/
+        static void hoome2() 
+        {
+            // 10/07/2023
+            var b1 = ReadNumber("Введите b1");
+            var k1 = ReadNumber("Введите k1");
+            var b2 = ReadNumber("Введите b2");
+            var k2 = ReadNumber("Введите k2");
+            var delta_k = k1 - k2;
+            if (delta_k == 0) 
+            {
+                MessageBox.Show("Прямые параллельны.");
+            }
+            else 
+            {
+               var delta_b = b1 - b2; 
+               var x  = delta_b / delta_k;
+               var y = k1 * x +b1;
+                MessageBox.Show($"Точка пересечения прямых: ({x} , {y} ");
+
+            }
+
+
+        }
         static void Information() 
         {
             string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 5 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
@@ -510,24 +549,13 @@
                 this.Size = new System.Drawing.Size(300, 300);
 
 
-                Button hmBtn = new Button();
-                hmBtn.Text = "03.07.[1]";
-                hmBtn.Click += (sender, e) => newHome();
-                Button hmBtn2 = new Button();
-                hmBtn2.Text = "03.07.[2]";
-                hmBtn2.Click += (sender, e) => newHome2();
-                Button hmBtn3 = new Button();
-                hmBtn3.Text = "03.07.[3]";
-                hmBtn3.Click += (sender, e) => newHome3();
-                Button hmBtn4 = new Button();
-                hmBtn4.Text = "06.07.[1]";
-                hmBtn4.Click += (sender, e) => newHome4();
-                Button hmBtn5 = new Button();
-                hmBtn5.Text = "06.07.[2]";
-                hmBtn5.Click += (sender, e) => newHome5();
-                Button hmBtn6 = new Button();
-                hmBtn6.Text = "06.07.[3]";
-                hmBtn6.Click += (sender, e) => newHome6();
+                Button nhb = new Button();
+                nhb.Text = "[10.07.2023] #1";
+                nhb.Click += (sender, e) => hoome1();
+
+                Button nhb2 = new Button();
+                nhb2.Text = "[10.07.2023] #2";
+                nhb2.Click += (sender, e) => hoome2();
 
                 Button infoButton = new Button();
                 infoButton.Text = "FAQ";
@@ -537,13 +565,8 @@
                 FlowLayoutPanel panel = new();
                 panel.Dock = DockStyle.Fill;
                 panel.FlowDirection = FlowDirection.TopDown;
-                panel.Controls.Add(hmBtn);
-                panel.Controls.Add(hmBtn2);
-                panel.Controls.Add(hmBtn3);
-
-                panel.Controls.Add(hmBtn4);
-                panel.Controls.Add(hmBtn5);
-                panel.Controls.Add(hmBtn6);
+                panel.Controls.Add(nhb);
+                panel.Controls.Add(nhb2);
                 panel.Controls.Add(infoButton);
 
                 this.Controls.Add(panel);
