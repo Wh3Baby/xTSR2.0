@@ -8,6 +8,21 @@
             string input = Microsoft.VisualBasic.Interaction.InputBox(message, "Введите число: ");
             return Convert.ToInt32(input);
         }
+        // Новый стаф 
+        static double GetElementValue(double[,] matrix, int row, int column)
+        {
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+
+            if (row >= 0 && row < rows && column >= 0 && column < columns)
+            {
+                return matrix[row, column];
+            }
+
+            return double.MinValue; // Возвращаем значение double.MinValue для обозначения отсутствия элемента
+        }
+
+
         static bool IsWeekend(int dayOfWeek)
         {
             return dayOfWeek == 6 || dayOfWeek == 7; // 6 - суббота, 7 - воскресенье
@@ -506,6 +521,7 @@
             var b2 = ReadNumber("Введите b2");
             var k2 = ReadNumber("Введите k2");
             var delta_k = k1 - k2;
+
             if (delta_k == 0) 
             {
                 MessageBox.Show("Прямые параллельны.");
@@ -521,6 +537,104 @@
 
 
         }
+        /// <summary>
+        ///  Задайте двумерный массив размером m×n, заполненный случайными вещественными числами. 
+        /// </summary>
+        static void homecringe() 
+        {
+            int m = 3; 
+            int n = 4;
+            double[,] matrix = new double[m, n];
+
+            Random rand = new Random();
+
+            // Заполнение массива случайными вещественными числами
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrix[i, j] = rand.NextDouble(); // Генерирует случайное вещественное число от 0.0 до 1.0
+                }
+            }
+
+            // Вывод массива на консоль (для проверки)
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+        }
+        /// <summary>
+        /// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+        /// </summary>
+        static void homecringe2() 
+        {
+            // Инициализируем двумерный массив
+            double[,] matrix =
+            {
+            { 1.1, 2.2, 3.3 },
+            { 4.4, 5.5, 6.6 },
+            { 7.7, 8.8, 9.9 }
+        };
+
+            Console.Write("Введите номер строки: ");
+            int row = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите номер столбца: ");
+            int column = int.Parse(Console.ReadLine());
+
+            double result = GetElementValue(matrix, row, column);
+
+            if (result != double.MinValue)
+            {
+                Console.WriteLine($"Значение элемента [{row}, {column}]: {result}");
+            }
+            else
+            {
+                Console.WriteLine($"Элемента с позицией [{row}, {column}] не существует.");
+            }
+        }
+
+        static void homecringe3() 
+        {
+            // Инициализируем двумерный массив
+            int[,] matrix =
+            {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+            { 7, 8, 9 }
+        };
+
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+
+            // Создаем массив для хранения средних значений столбцов
+            double[] columnAverages = new double[columns];
+
+            // Находим среднее значение для каждого столбца
+            for (int j = 0; j < columns; j++)
+            {
+                int sum = 0;
+                for (int i = 0; i < rows; i++)
+                {
+                    sum += matrix[i, j];
+                }
+                columnAverages[j] = (double)sum / rows;
+            }
+
+            // Выводим результаты
+            Console.WriteLine("Средние значения в каждом столбце:");
+            for (int j = 0; j < columns; j++)
+            {
+                Console.WriteLine($"Столбец {j + 1}: {columnAverages[j]}");
+            }
+        }
+
+
         static void Information() 
         {
             string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 5 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
