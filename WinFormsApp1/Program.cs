@@ -111,6 +111,170 @@
             return range;
         }
 
+
+        static void SortRowsDescending(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                // Создаем временный одномерный массив, содержащий элементы текущей строки
+                int[] rowArray = new int[columns];
+                for (int j = 0; j < columns; j++)
+                {
+                    rowArray[j] = array[i, j];
+                }
+
+                // Упорядочиваем элементы текущей строки по убыванию
+                Array.Sort(rowArray, (x, y) => y.CompareTo(x));
+
+                // Записываем отсортированные элементы обратно в двумерный массив
+                for (int j = 0; j < columns; j++)
+                {
+                    array[i, j] = rowArray[j];
+                }
+            }
+        }
+
+        static void PrintArray(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(array[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2)
+        {
+            int rows1 = matrix1.GetLength(0);
+            int columns1 = matrix1.GetLength(1);
+            int rows2 = matrix2.GetLength(0);
+            int columns2 = matrix2.GetLength(1);
+
+            // Проверяем возможность умножения матриц
+            if (columns1 != rows2)
+            {
+                throw new ArgumentException("Число столбцов первой матрицы должно быть равно числу строк второй матрицы.");
+            }
+
+            int[,] resultMatrix = new int[rows1, columns2];
+
+            // Выполняем умножение матриц
+            for (int i = 0; i < rows1; i++)
+            {
+                for (int j = 0; j < columns2; j++)
+                {
+                    int sum = 0;
+
+                    for (int k = 0; k < columns1; k++)
+                    {
+                        sum += matrix1[i, k] * matrix2[k, j];
+                    }
+
+                    resultMatrix[i, j] = sum;
+                }
+            }
+
+            return resultMatrix;
+        }
+
+        static void PrintMatrix(int[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int columns = matrix.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static int FindRowWithMinimumSum(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            int minRowSum = int.MaxValue;
+            int minRowIndex = -1;
+
+            for (int i = 0; i < rows; i++)
+            {
+                int currentRowSum = 0;
+
+                for (int j = 0; j < columns; j++)
+                {
+                    currentRowSum += array[i, j];
+                }
+
+                if (currentRowSum < minRowSum)
+                {
+                    minRowSum = currentRowSum;
+                    minRowIndex = i;
+                }
+            }
+
+            return minRowIndex;
+        }
+
+        static int[,,] GenerateThreeDimensionalArray()
+        {
+            int[,,] array = new int[4, 3, 2];
+            int num = 10;
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 2; k++)
+                    {
+                        array[i, j, k] = num;
+                        num++;
+
+                        // Проверяем, чтобы числа были двузначными
+                        if (num > 99)
+                            num = 10;
+                    }
+                }
+            }
+
+            return array;
+        }
+
+        static void PrintArrayWithIndices(int[,,] array)
+        {
+            int depth = array.GetLength(0);
+            int rows = array.GetLength(1);
+            int columns = array.GetLength(2);
+
+            for (int i = 0; i < depth; i++)
+            {
+                for (int j = 0; j < rows; j++)
+                {
+                    for (int k = 0; k < columns; k++)
+                    {
+                        Console.Write($"[{i}, {j}, {k}] = {array[i, j, k]}   ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+
+
         static double CalculateDistance(double x1, double y1, double x2, double y2)
         {
             double dx = x2 - x1;
@@ -634,10 +798,130 @@
             }
         }
 
+        // LAST HOMEWORK
+        static void lasdz1() 
+        {
+            // Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+
+            //  двумерный массив ( 3x4)
+            int[,] array = new int[,]
+            {
+            { 5, 8, 2, 3 },
+            { 1, 9, 4, 7 },
+            { 6, 0, 2, 5 }
+            };
+
+            // Упорядочивание элементов каждой строки
+            SortRowsDescending(array);
+
+            // Вывод отсортированного массива
+            PrintArray(array);
+        }
+
+
+        static void lasdz2() 
+        {
+
+            //Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+            int[,] array = new int[,]
+            {
+            { 5, 8, 2, 3 },
+            { 1, 9, 4, 7 },
+            { 6, 0, 2, 5 }
+            };
+
+            // Находим строку с наименьшей суммой элементов
+            int minRowIndex = FindRowWithMinimumSum(array);
+
+            // Выводим результат
+            Console.WriteLine("Строка с наименьшей суммой элементов: " + minRowIndex);
+        }
+
+        static void lasdz3() 
+        {
+            // Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
+            int[,] matrix1 = new int[,]
+        {
+            { 1, 2, 3 },
+            { 4, 5, 6 }
+        };
+
+            int[,] matrix2 = new int[,]
+            {
+            { 7, 8 },
+            { 9, 10 },
+            { 11, 12 }
+            };
+
+            // Находим произведение двух матриц
+            int[,] resultMatrix = MultiplyMatrices(matrix1, matrix2);
+
+            // Выводим результат
+            Console.WriteLine("Произведение двух матриц:");
+            PrintMatrix(resultMatrix);
+        }
+        static void lasdz4() 
+        {
+            // Формируем трехмерный массив из неповторяющихся двузначных чисел
+            int[,,] threeDimensionalArray = GenerateThreeDimensionalArray();
+
+            // Выводим массив с индексами каждого элемента
+            PrintArrayWithIndices(threeDimensionalArray);
+        }
+
+
+
+
+        static void FillSpiralArray(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int columns = array.GetLength(1);
+
+            int value = 1;
+            int rowStart = 0, rowEnd = rows - 1;
+            int colStart = 0, colEnd = columns - 1;
+
+            while (value <= rows * columns)
+            {
+                // Заполняем верхнюю строку слева направо
+                for (int i = colStart; i <= colEnd; i++)
+                    array[rowStart, i] = value++;
+
+                rowStart++;
+
+                // Заполняем правый столбец сверху вниз
+                for (int i = rowStart; i <= rowEnd; i++)
+                    array[i, colEnd] = value++;
+
+                colEnd--;
+
+                // Заполняем нижнюю строку справа налево
+                for (int i = colEnd; i >= colStart; i--)
+                    array[rowEnd, i] = value++;
+
+                rowEnd--;
+
+                // Заполняем левый столбец снизу вверх
+                for (int i = rowEnd; i >= rowStart; i--)
+                    array[i, colStart] = value++;
+
+                colStart++;
+            }
+        }
+        static void DOPOLNITELNOE() 
+        {
+            int[,] spiralArray = new int[4, 4];
+
+            FillSpiralArray(spiralArray);
+
+            // Выводим массив на консоль
+            PrintArray(spiralArray);
+        }
 
         static void Information() 
         {
-            string msg = "xTSR ver 2.2\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по 5 семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
+            string msg = "xTSR ver 3.0\nПрограмма с домашними заданиями по курсу C#\nВ этом релизе всё дз с первого по последний семинар\nАвтор: Крячко Виктор\nTelegram: https://t.me/WH3BABY\nGitHub: https://github.com/Wh3Baby";
             MessageBox.Show(msg);
         }
         [STAThread]
